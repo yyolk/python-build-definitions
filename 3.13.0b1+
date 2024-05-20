@@ -1,0 +1,8 @@
+prefer_openssl3
+export PYTHON_BUILD_CONFIGURE_WITH_OPENSSL=1
+export PYTHON_BUILD_TCLTK_USE_PKGCONFIG=1
+export PYTHON_BUILD_CONFIGURE_WITH_DSYMUTIL=1
+export PYTHON_CONFIGURE_OPTS="--enable-experimental-jit --disable-gil"
+install_package "openssl-3.3.0" "https://www.openssl.org/source/openssl-3.3.0.tar.gz#53e66b043322a606abf0087e7699a0e033a37fa13feb9742df35c3a33b18fb02" mac_openssl --if has_broken_mac_openssl
+install_package "readline-8.2" "https://ftpmirror.gnu.org/readline/readline-8.2.tar.gz#3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35" mac_readline --if has_broken_mac_readline
+install_git "Python-3.13.0b1+" "https://github.com/python/cpython" 3.13 standard verify_py313 copy_python_gdb ensurepip
